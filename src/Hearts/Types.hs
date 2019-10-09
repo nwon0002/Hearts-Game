@@ -1,4 +1,4 @@
-module Hearts.Types where
+ module Hearts.Types where
 
 import Cards
 import Data.List (elemIndex)

@@ -6,6 +6,8 @@ import Hearts.Types
 import Hearts.Play(playGame)
 import Game(newPlayer)
 import Logs(writeGame)
+import Deck
+import Cards
 
 import safe qualified Player
 
@@ -21,9 +23,9 @@ test_one_play players = do
 
 main :: IO ()
 main = do
-  played <- test_one_play $ map player ["P1", "P2", "P3", "P4"]
+  played <- test_one_play $ player <$> ["Felix Jellyburger", "Link Nealydoo", "Rhett Mcloughfyloff", "Toadalbrisket"]
   if played
      then exitSuccess
      else exitFailure
   where
-    player name = newPlayer name Player.playCard Player.makeBid
+    player = \x -> newPlayer x Player.playCard Player.makeBid
