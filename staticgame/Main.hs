@@ -26,7 +26,7 @@ main = do
   played <- runEitherIO $ playGame 100 players
   case played of
     Right gr@(GameResult hr scores _) -> do
-      forM_ hr print
+      forM_ (reverse hr) print
       putStrLn "=============="
       forM_ scores print
       writeGame gr
